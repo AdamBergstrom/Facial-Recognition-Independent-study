@@ -14,10 +14,11 @@
 https://aws.amazon.com/s3/storage-classes/
 
 Pricing - https://aws.amazon.com/s3/pricing/
+
 S3 Standard Storage
-First 50 TB / Month	$0.023 per GB
-Next 450 TB / Month	$0.022 per GB
-Over 500 TB / Month	$0.021 per GB
+* First 50 TB / Month	$0.023 per GB
+* Next 450 TB / Month	$0.022 per GB
+* Over 500 TB / Month	$0.021 per GB
 
 
 
