@@ -68,12 +68,12 @@ The bounding box coordinates can have negative values. For example, if Amazon Re
 - Landmarks - https://docs.aws.amazon.com/rekognition/latest/dg/API_Landmark.html
 
 ## Python Tutorials
-Introduction to Python 
+##### Introduction to Python 
    - https://www.codecademy.com/learn/learn-python
    - https://www.w3schools.com/python/
    - https://www.tutorialspoint.com/python/
    - https://www.reddit.com/r/learnpython/
-Facial Recognition tutorials and Intermediate Python
+##### Facial Recognition tutorials and Intermediate Python
    - [Getting Started with Face Recognition in Python](https://www.youtube.com/watch?v=IWoigw6-crg)
    - [Amazon Rekognition Code Samples](https://gist.github.com/alexcasalboni/0f21a1889f09760f8981b643326730ff)
    - [AWS Tutorial Series YouTube](https://www.youtube.com/channel/UClLLJjpSWRRa1BosQrNVDjA)
