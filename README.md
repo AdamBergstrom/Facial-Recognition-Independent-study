@@ -8,6 +8,9 @@
 
 ### Local Configuration and Setup
 
+## Bounding Box
+Documentation on bounding box: https://docs.aws.amazon.com/rekognition/latest/dg/API_BoundingBox.html
+
 ## API Request and Response Syntax
 1. [Amazon Rekognition Video StartFaceDetection](https://docs.aws.amazon.com/rekognition/latest/dg/API_StartFaceDetection.html)
 ```
