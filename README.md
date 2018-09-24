@@ -8,6 +8,9 @@
 
 ### Local Configuration and Setup
 
+## S3 Bucket Pricing
+https://aws.amazon.com/s3/pricing/
+
 ## Bounding Box
 Documentation on bounding box: https://docs.aws.amazon.com/rekognition/latest/dg/API_BoundingBox.html
 
