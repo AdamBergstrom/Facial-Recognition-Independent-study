@@ -24,7 +24,7 @@ Over 500 TB / Month	$0.021 per GB
 ## Bounding Box
 Documentation on bounding box: https://docs.aws.amazon.com/rekognition/latest/dg/API_BoundingBox.html
 
-Identifies the bounding box around the face or text. The left (x-coordinate) and top (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0).
+Identifies the bounding box around the face or text. The left (x-coordinate) and top (y-coordinate) are coordinates representing the top and left sides of the bounding box. **Note that the upper-left corner of the image is the origin (0,0).**
 The top and left values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a left value of 0.5 (350/700) and a top value of 0.25 (50/200).
 
 The width and height values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1.
