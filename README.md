@@ -1,81 +1,70 @@
-# Facial-Recognition-Independent-study
+Project Title
 
-## Overview
-[Facial Recognition](https://aws.amazon.com/rekognition/) with Amazon Web Services.
+One Paragraph of project description goes here
 
-## Getting Started
-[IDE For Development Here](<linkToDownloadIDE>)
+Getting Started
 
-### Local Configuration and Setup
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## S3 Bucket Pricing
+Prerequisites
 
-#### Description of the different storage classes:
-https://aws.amazon.com/s3/storage-classes/
+What things you need to install the software and how to install them
 
-Pricing - https://aws.amazon.com/s3/pricing/
+Give examples
+Installing
 
-S3 Standard Storage
-* First 50 TB / Month	$0.023 per GB
-* Next 450 TB / Month	$0.022 per GB
-* Over 500 TB / Month	$0.021 per GB
+A step by step series of examples that tell you how to get a development env running
 
+Say what the step will be
 
+Give the example
+And repeat
 
-## Bounding Box
-Documentation on bounding box: https://docs.aws.amazon.com/rekognition/latest/dg/API_BoundingBox.html
+until finished
+End with an example of getting some data out of the system or using it for a little demo
 
-Identifies the bounding box around the face or text. The left (x-coordinate) and top (y-coordinate) are coordinates representing the top and left sides of the bounding box. **Note that the upper-left corner of the image is the origin (0,0).**
-The top and left values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a left value of 0.5 (350/700) and a top value of 0.25 (50/200).
+Running the tests
 
-The width and height values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1.
+Explain how to run the automated tests for this system
 
-#### Note
-The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the left or top values.
+Break down into end to end tests
 
-## API Request and Response Syntax
-1. [Amazon Rekognition Video StartFaceDetection](https://docs.aws.amazon.com/rekognition/latest/dg/API_StartFaceDetection.html)
-```
-{
-   "ClientRequestToken": "string",
-   "FaceAttributes": "string",
-   "JobTag": "string",
-   "NotificationChannel": { 
-      "RoleArn": "string",
-      "SNSTopicArn": "string"
-   },
-   "Video": { 
-      "S3Object": { 
-         "Bucket": "string",
-         "Name": "string",
-         "Version": "string"
-      }
-   }
-}
-```
+Explain what these tests test and why
 
-2. [Amazon Rekognition Video GetFaceDetection](https://docs.aws.amazon.com/rekognition/latest/dg/API_GetFaceDetection.html)
-```
-{
-   "JobId": "string",
-   "MaxResults": number,
-   "NextToken": "string"
-}
-```
+Give an example
+And coding style tests
 
+Explain what these tests test and why
 
-## Data explanation
-- Roll, Pitch, Yaw - https://www.youtube.com/watch?v=pQ24NtnaLl8
-- Landmarks - https://docs.aws.amazon.com/rekognition/latest/dg/API_Landmark.html
+Give an example
+Deployment
 
-## Python Tutorials
-##### Introduction to Python 
-   - https://www.codecademy.com/learn/learn-python
-   - https://www.w3schools.com/python/
-   - https://www.tutorialspoint.com/python/
-   - https://www.reddit.com/r/learnpython/
-##### Facial Recognition tutorials and Intermediate Python
-   - [Getting Started with Face Recognition in Python](https://www.youtube.com/watch?v=IWoigw6-crg)
-   - [Amazon Rekognition Code Samples](https://gist.github.com/alexcasalboni/0f21a1889f09760f8981b643326730ff)
-   - [AWS Tutorial Series YouTube](https://www.youtube.com/channel/UClLLJjpSWRRa1BosQrNVDjA)
-   - [AWS Tutorial Series Website](https://awstutorialseries.com)
+Add additional notes about how to deploy this on a live system
+
+Built With
+
+Dropwizard - The web framework used
+Maven - Dependency Management
+ROME - Used to generate RSS Feeds
+Contributing
+
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+
+Versioning
+
+We use SemVer for versioning. For the versions available, see the tags on this repository.
+
+Authors
+
+Billie Thompson - Initial work - PurpleBooth
+See also the list of contributors who participated in this project.
+
+License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
+Acknowledgments
+
+Hat tip to anyone whose code was used
+Inspiration
+etc
