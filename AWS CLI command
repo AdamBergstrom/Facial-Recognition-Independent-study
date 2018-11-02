@@ -1,0 +1,6 @@
+aws rekognition start-face-detection --video 
+"S3Object={Bucket="BUCKET NAME",Name="VIDEO NAME"}" 
+--endpoint-url ADD URL 
+--notification-channel "SNSTopicArn= TOPIC ARN,
+RoleArn= ROLE ARN" 
+--region us-east-2 --profile PROFILE NAME
