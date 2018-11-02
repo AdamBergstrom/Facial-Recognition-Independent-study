@@ -5,9 +5,8 @@
 [Facial Recognition](https://aws.amazon.com/rekognition/) with Amazon Web Services.
 
 ## Getting Started
-[IDE For Development Here](<linkToDownloadIDE>)
-
-### Local Configuration and Setup
+Pycharm: https://www.jetbrains.com/pycharm/
+AWS CLI: https://aws.amazon.com/cli/
 
 ## S3 Bucket Pricing
 
