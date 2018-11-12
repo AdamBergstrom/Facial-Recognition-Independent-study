@@ -19,12 +19,15 @@ class VideoDetect:
 
 
         #=====================================
-        response = self.rek.start_label_detection(Video={'S3Object': {'Bucket': self.bucket, 'Name': self.video}},
-                                         NotificationChannel={'RoleArn': self.roleArn, 'SNSTopicArn': self.topicArn})
+
+        response = self.rek.start_face_detection(Video={'S3Object':{'Bucket':self.bucket,'Name':self.video}},
+                                                 NotificationChannel={'RoleArn':self.roleArn, 'SNSTopicArn':self.topicArn})
+
         #=====================================
         print('Start Job Id: ' + response['JobId'])
         dotLine=0
         while jobFound == False:
+
             sqsResponse = sqs.receive_message(QueueUrl=self.queueUrl, MessageAttributeNames=['ALL'],
                                           MaxNumberOfMessages=10)
 
@@ -49,7 +52,7 @@ class VideoDetect:
                         print('Matching Job Found:' + rekMessage['JobId'])
                         jobFound = True
                         #=============================================
-                        self.GetResultsLabels(rekMessage['JobId'])
+                        self.GetResultsFaces(rekMessage['JobId'])
                         #=============================================
 
                         sqs.delete_message(QueueUrl=self.queueUrl,
@@ -64,26 +67,26 @@ class VideoDetect:
         print('done')
 
 
-    def GetResultsLabels(self, jobId):
+    def GetResultsFaces(self, jobId):
         maxResults = 10
         paginationToken = ''
         finished = False
 
         while finished == False:
-            response = self.rek.get_label_detection(JobId=jobId,
+            response = self.rek.get_face_detection(JobId=jobId,
                                             MaxResults=maxResults,
-                                            NextToken=paginationToken,
-                                            SortBy='TIMESTAMP')
+                                            NextToken=paginationToken)
 
             print(response['VideoMetadata']['Codec'])
             print(str(response['VideoMetadata']['DurationMillis']))
             print(response['VideoMetadata']['Format'])
             print(response['VideoMetadata']['FrameRate'])
 
-            for labelDetection in response['Labels']:
-                print(labelDetection['Label']['Name'])
-                print(labelDetection['Label']['Confidence'])
-                print(str(labelDetection['Timestamp']))
+            for faceDetection in response['Faces']:
+                print('Face: ' + str(faceDetection['Face']))
+                print('Confidence: ' + str(faceDetection['Face']['Confidence']))
+                print('Timestamp: ' + str(faceDetection['Timestamp']))
+                print()
 
             if 'NextToken' in response:
                 paginationToken = response['NextToken']
