@@ -12,7 +12,7 @@ class VideoDetect:
     bucket = ''
     video = ''
 
-    def main(self):
+        def main(self):
 
         jobFound = False
         sqs = boto3.client('sqs')
@@ -77,16 +77,20 @@ class VideoDetect:
                                             MaxResults=maxResults,
                                             NextToken=paginationToken)
 
-            print(response['VideoMetadata']['Codec'])
-            print(str(response['VideoMetadata']['DurationMillis']))
-            print(response['VideoMetadata']['Format'])
-            print(response['VideoMetadata']['FrameRate'])
+            #print(response['VideoMetadata']['Codec'])
+            #print(str(response['VideoMetadata']['DurationMillis']))
+            #print(response['VideoMetadata']['Format'])
+            #print(response['VideoMetadata']['FrameRate'])
 
             for faceDetection in response['Faces']:
-                print('Face: ' + str(faceDetection['Face']))
-                print('Confidence: ' + str(faceDetection['Face']['Confidence']))
-                print('Timestamp: ' + str(faceDetection['Timestamp']))
+                #print('Face: ' + str(faceDetection['Face']))
+                df = json_normalize(response, 'Faces')
+                df.to_csv('test.csv')
+                #print('Confidence: ' + str(faceDetection['Face']['Confidence']))
+                #print('Timestamp: ' + str(faceDetection['Timestamp']))
                 print()
+
+            CSV_Exporter.JSON_to_CSV(response)
 
             if 'NextToken' in response:
                 paginationToken = response['NextToken']
