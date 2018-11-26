@@ -4,7 +4,7 @@ import os
 
 FPS = 30
 # Playing video from file:
-cap = cv2.VideoCapture('/Users/adambergstrom/Desktop/499-rekognition/venv/01-01-01-01-01-01-01.mp4')
+cap = cv2.VideoCapture('location/name')
 cap.set(cv2.CAP_PROP_FPS, FPS)
 
 try:
