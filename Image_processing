@@ -1,0 +1,31 @@
+import os
+import boto3
+#import CSV_Exporter
+import image_helpers
+import json
+
+if __name__ == "__main__":
+
+
+    imageFile='/Users/adambergstrom/Desktop/499-rekognition/venv/data/frame0.jpg'
+    client=boto3.client('rekognition')
+
+directory = '/Users/adambergstrom/Desktop/499-rekognition/venv/data/'
+
+for file in sorted(os.listdir(directory)):
+
+    filename = os.fsdecode(file)
+
+    imgbytes = image_helpers.get_image_from_file(directory + file)
+    rekresp = client.detect_faces(Image={'Bytes': imgbytes})
+
+    print(file , rekresp)
+
+
+    with open('data.json', 'a') as outfile:
+        json.dump(rekresp, outfile)
+        outfile.write('\n')
+
+    #CSV_Exporter.JSON_to_CSV(rekresp)
+
+    continue
