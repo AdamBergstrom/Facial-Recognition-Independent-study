@@ -1,0 +1,2 @@
+,BoundingBox.Height,BoundingBox.Left,BoundingBox.Top,BoundingBox.Width,Confidence,Pose.Pitch,Pose.Roll,Pose.Yaw,Quality.Brightness,Quality.Sharpness,eyeLeftX,eyeLeftY,eyeRightX,eyeRightY,mouthLeftX,mouthLeftY,mouthRightX,mouthRightY,noseX,noseY
+0,0.58635986,0.38530403,0.17216031,0.23329854,100,-2.4030051,2.4018533,-2.7267115,71.1909,78.6435,0.4520024,0.40659964,0.55877405,0.41689956,0.45458543,0.61077434,0.54282886,0.6192928,0.5022135,0.51951116
