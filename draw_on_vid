@@ -2,38 +2,41 @@ import numpy as np
 import cv2
 
 cap = cv2.VideoCapture('01-01-01-01-01-01-01.mp4')
-fourcc = cv2.VideoWriter_fourcc(*'DIVX')
-out = cv2.VideoWriter('output.mov',fourcc, 29.0, (1280, 720))
+fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+out = cv2.VideoWriter('output.mp4',fourcc, 29.0, (1280, 720))
 
-while(1):
+csv = np.genfromtxt("test.csv",delimiter=",")
+#print(X[1,1])#[Y axis,X axis]
+row = 1
+
+#while(1):
+while cap.isOpened():
 
     # read the frames
     hasFrame,frame = cap.read()
 
-    csv = np.genfromtxt("test.csv",delimiter=",")
-    #print(X[1,1])#[Y axis,X axis]
-    Y = 1
-    eyeleftX = int(csv[Y,11] * 1280)
-    eyeleftY = int(csv[Y,12] * 720)
-    eyerightX = int(csv[Y,13] * 1280)
-    eyerightY = int(csv[Y,14] * 720)
-    mouthleftX = int(csv[Y,15] * 1280)
-    mouthleftY = int(csv[Y,16] * 720)
-    mouthrightX = int(csv[Y,17] * 1280)
-    mouthrightY = int(csv[Y,18] * 720)
-    noseX = int(csv[Y,19] * 1280)
-    noseY = int(csv[Y,20] * 720)
-
     #for(frame in frames)
-    while cap.isOpened():
-        cv2.circle(frame, (eyeleftX, eyeleftY), 1, (0, 255, 0), 4, 3)
-        cv2.circle(frame, (eyerightX, eyerightY), 1, (0, 255, 0), 4, 3)
-        cv2.circle(frame, (mouthleftX, mouthleftY), 1, (0, 255, 0), 4, 3)
-        cv2.circle(frame, (mouthrightX, mouthrightY), 1, (0, 255, 0), 4, 3)
-        cv2.circle(frame, (noseX, noseY), 1, (0, 255, 0), 4, 3)
-        Y + 1
+    eyeleftX = int(csv[row,11] * 1280)
+    eyeleftY = int(csv[row,12] * 720)
+    eyerightX = int(csv[row,13] * 1280)
+    eyerightY = int(csv[row,14] * 720)
+    mouthleftX = int(csv[row,15] * 1280)
+    mouthleftY = int(csv[row,16] * 720)
+    mouthrightX = int(csv[row,17] * 1280)
+    mouthrightY = int(csv[row,18] * 720)
+    noseX = int(csv[row,19] * 1280)
+    noseY = int(csv[row,20] * 720)
 
-    out.write(frame)
+
+    cv2.circle(frame, (eyeleftX, eyeleftY), 1, (0, 255, 0), 4, 3)
+    cv2.circle(frame, (eyerightX, eyerightY), 1, (0, 255, 0), 4, 3)
+    cv2.circle(frame, (mouthleftX, mouthleftY), 1, (0, 255, 0), 4, 3)
+    cv2.circle(frame, (mouthrightX, mouthrightY), 1, (0, 255, 0), 4, 3)
+    cv2.circle(frame, (noseX, noseY), 1, (0, 255, 0), 4, 3)
+    row = row + 1
+    print(row)
+
+    #out.write(frame)
     #if key pressed is 'Esc', exit the loop
     cv2.imshow('frame',frame)
 
@@ -42,5 +45,5 @@ while(1):
 
 out.release()
 
-#cv2.destroyAllWindows()
+
 
