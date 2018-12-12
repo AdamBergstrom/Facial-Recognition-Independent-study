@@ -2,11 +2,11 @@ import numpy as np
 import cv2
 
 cap = cv2.VideoCapture('01-01-01-01-01-01-01.mp4')
-fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 out = cv2.VideoWriter('output.mp4',fourcc, 29.0, (1280, 720))
 
 csv = np.genfromtxt("test.csv",delimiter=",")
-#print(X[1,1])#[Y axis,X axis]
+
 row = 1
 
 #while(1):
@@ -14,6 +14,11 @@ while cap.isOpened():
 
     # read the frames
     hasFrame,frame = cap.read()
+
+    x = int(csv[row,3] * (1280 * 2))
+    y = int(csv[row,2] *  (720 * 2))
+    w = int(csv[row,4] * (1280 * 2))
+    h = int(csv[row,1] * (720 * 2))
 
     #for(frame in frames)
     eyeleftX = int(csv[row,11] * 1280)
@@ -27,16 +32,18 @@ while cap.isOpened():
     noseX = int(csv[row,19] * 1280)
     noseY = int(csv[row,20] * 720)
 
+    # draw a green rectangle to visualize the bounding rect
+    cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 3)
 
+    # draw x,y coordinates for facial features
     cv2.circle(frame, (eyeleftX, eyeleftY), 1, (0, 255, 0), 4, 3)
     cv2.circle(frame, (eyerightX, eyerightY), 1, (0, 255, 0), 4, 3)
     cv2.circle(frame, (mouthleftX, mouthleftY), 1, (0, 255, 0), 4, 3)
     cv2.circle(frame, (mouthrightX, mouthrightY), 1, (0, 255, 0), 4, 3)
     cv2.circle(frame, (noseX, noseY), 1, (0, 255, 0), 4, 3)
     row = row + 1
-    print(row)
 
-    #out.write(frame)
+    out.write(frame)
     #if key pressed is 'Esc', exit the loop
     cv2.imshow('frame',frame)
 
