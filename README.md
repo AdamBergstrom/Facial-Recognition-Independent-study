@@ -36,25 +36,6 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
@@ -62,7 +43,7 @@ Notes on how to deploy themselves
 
 ## Built With
 *AWS Rekognition Services
-*Anaconda IDE - Jupyter notebook
+*PyCharm
 *Python
 
 ## Contributing
@@ -78,10 +59,3 @@ Version 1
 * **Adam Bergstrom**
 * **Peter Schaber**
 * **Steven Livingstone** 
-
-## License
-
-
-## Acknowledgments
-
-
